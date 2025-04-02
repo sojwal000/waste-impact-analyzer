@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Results - Waste Impact Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container results-container">
+        <header>
+            <h1>Waste Impact Analysis Results</h1>
+            <a href="/" class="back-link">← Back to Upload</a>
+        </header>
+        
+        <main>
+            <div class="results-grid">
+                <div class="result-image-container">
+                    <h2>Analyzed Image</h2>
+                    <div class="result-image">
+                        <img id="result-image" src="" alt="Analyzed waste image">
+                    </div>
+                </div>
+                
+                <div class="detection-results">
+                    <h2>Waste Detection</h2>
+                    <div class="detection-card">
+                        <div class="waste-type">
+                            <h3>Waste Type:</h3>
+                            <p id="waste-type" class="highlight">Loading...</p>
+                        </div>
+                        <div class="detected-items">
+                            <h3>Detected Items:</h3>
+                            <ul id="detected-items-list" class="detected-items-list">
+                                <li class="item-placeholder">Loading items...</li>
+                            </ul>
+                        </div>
+                        <div class="confidence">
+                            <h3>Confidence:</h3>
+                            <div class="confidence-bar-container">
+                                <div id="confidence-bar" class="confidence-bar" style="width: 0%"></div>
+                                <span id="confidence-value">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tabs-container">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="impact">Environmental Impact</button>
+                    <button class="tab-btn" data-tab="recommendations">Recommendations</button>
+                    <button class="tab-btn" data-tab="alternatives">Eco Alternatives</button>
+                    <button class="tab-btn" data-tab="regional">Regional Guidelines</button>
+                </div>
+                
+                <div class="tab-content">
+                    <div id="impact-tab" class="tab-pane active">
+                        <div class="impact-summary">
+                            <div class="impact-metric">
+                                <h3>Decomposition Time</h3>
+                                <p id="decomposition-time">Loading...</p>
+                            </div>
+                            <div class="impact-metric">
+                                <h3>CO₂ Emissions</h3>
+                                <p id="co2-emissions">Loading...</p>
+                            </div>
+                            <div class="impact-metric">
+                                <h3>Energy Consumption</h3>
+                                <p id="energy-consumption">Loading...</p>
+                            </div>
+                            <div class="impact-metric">
+                                <h3>Toxicity Level</h3>
+                                <p id="toxicity-level">Loading...</p>
+                            </div>
+                        </div>
+                        
+                        <div class="impact-details">
+                            <div class="impact-detail-row">
+                                <div class="impact-detail">
+                                    <h3>Microplastic Generation</h3>
+                                    <p id="microplastic-generation">Loading...</p>
+                                </div>
+                                <div class="impact-detail">
+                                    <h3>Disposal Cost</h3>
+                                    <p id="disposal-cost">Loading...</p>
+                                </div>
+                            </div>
+                            <div class="impact-detail-row">
+                                <div class="impact-detail">
+                                    <h3>Environmental Hazard</h3>
+                                    <p id="environmental-hazard">Loading...</p>
+                                </div>
+                                <div class="impact-detail">
+                                    <h3>Biodegradability</h3>
+                                    <p id="biodegradability">Loading...</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="impact-charts">
+                            <div class="chart-container">
+                                <h3>Environmental Impact Metrics</h3>
+                                <canvas id="impact-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="recommendations-tab" class="tab-pane">
+                        <h3>Recommended Actions</h3>
+                        <ul id="recommendations-list" class="recommendations-list">
+                            <li class="recommendation-placeholder">Loading recommendations...</li>
+                        </ul>
+                    </div>
+                    
+                    <div id="alternatives-tab" class="tab-pane">
+                        <h3>Eco-Friendly Alternatives</h3>
+                        <ul id="alternatives-list" class="alternatives-list">
+                            <li class="alternative-placeholder">Loading alternatives...</li>
+                        </ul>
+                    </div>
+                    
+                    <div id="regional-tab" class="tab-pane">
+                        <h3>Regional Disposal Guidelines</h3>
+                        <div class="region-selector">
+                            <label for="region-select">Select Region:</label>
+                            <select id="region-select">
+                                <option value="North America">North America</option>
+                                <option value="Europe">Europe</option>
+                                <option value="Asia">Asia</option>
+                            </select>
+                        </div>
+                        <div class="regional-guidelines">
+                            <p id="regional-guideline">Select a region to view guidelines</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>© 2023 Waste Impact Analyzer | Helping reduce environmental impact</p>
+        </footer>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/results.js') }}"></script>
+</body>
+</html>
